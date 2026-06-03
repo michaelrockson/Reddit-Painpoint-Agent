@@ -1,4 +1,4 @@
-# Reddit Painpoint Agent
+# Project Watchtower – Backend
 
 Automatically discover and validate real, recurring software problems from Reddit before you write a single line of
 product code.
@@ -34,8 +34,8 @@ The agent runs a four-stage pipeline:
 Clone the repository:
 
    ```bash
-   git clone https://github.com/michaelrockson/Reddit-Painpoint-Agent.git
-   cd Reddit-Painpoint-Agent
+   git clone https://github.com/michaelrockson/project-watchtower.git
+   cd project-watchtower
    ```
 
 Run the setup script:
@@ -118,7 +118,7 @@ python main.py
 ## Project Structure
 
 ```
-Reddit-PainPoint-Agent/
+project-watchtower/
 ├── agent.py                    # Background scheduler (APScheduler)
 ├── main.py                     # Manual entry point
 │

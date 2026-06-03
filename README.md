@@ -1,4 +1,4 @@
-# Reddit Painpoint Agent
+# Project Watchtower
 
 A full-stack application for discovering, validating and tracking recurring software-solvable pain points from Reddit.
 
@@ -32,8 +32,8 @@ Optional:
 Clone the repository:
 
 ```bash
-git clone https://github.com/michaelrockson/Reddit-Painpoint-Agent.git
-cd Reddit-Painpoint-Agent
+git clone https://github.com/michaelrockson/project-watchtower.git
+cd project-watchtower
 ```
 
 The project consists of two primary components:

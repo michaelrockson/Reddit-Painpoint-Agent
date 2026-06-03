@@ -6,7 +6,6 @@ export default function DashboardPage() {
   return (
     <>
       <section className="li-section-sm li-px-lg">
-        <h1>Overview!</h1>
         <DashboardOverviewCards />
         <DashboardOverviewCharts />
         <DashboardHistoryCard />
