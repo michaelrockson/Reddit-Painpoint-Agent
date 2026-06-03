@@ -1,6 +1,6 @@
-# Reddit Painpoint Agent - System Diagrams
+# Project Watchtower - System Diagrams
 
-This document outlines the architecture, data flow, and configuration management of the Reddit Painpoint Agent using
+This document outlines the architecture, data flow, and configuration management of Project Watchtower using
 Mermaid diagrams.
 
 ## 1. High-Level System Architecture

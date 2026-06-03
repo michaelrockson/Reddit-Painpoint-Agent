@@ -1,4 +1,4 @@
-# Reddit Painpoint Agent
+# Project Watchtower – Frontend
 
 The frontend provides the user interface for authentication, dashboards, pipeline management and reviewing generated
 opportunities produced by the agent.
@@ -16,8 +16,8 @@ component.
 Clone the repository and install dependencies for the frontend:
 
 ```bash
-git clone https://github.com/michaelrockson/Reddit-Painpoint-Agent.git
-cd Reddit-Painpoint-Agent/Agent_Frontend
+git clone https://github.com/michaelrockson/project-watchtower.git
+cd project-watchtower/Agent_Frontend
 npm install
 ```
 
