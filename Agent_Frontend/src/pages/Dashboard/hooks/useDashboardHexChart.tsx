@@ -1,20 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import type { DashboardData, PipelinePayload } from "../models/DashboardModels.ts";
 
-type PipelinePayload = {
-  pipeline: string;
-  runs: number;
-};
+export function useDashboardHexChart(payload: DashboardData | null) {
+  const [pipelineData, setPipelineData] = useState<PipelinePayload[]>([]);
+  const isBootstrapped = useRef(false);
 
-const pipelinePayload: PipelinePayload[] = [
-  { pipeline: "Scout", runs: 62 },
-  { pipeline: "Ingress", runs: 82 },
-  { pipeline: "Sentiment", runs: 62 },
-  { pipeline: "Core", runs: 76 },
-  { pipeline: "Egress", runs: 15 },
-];
-
-export function useDashboardHexChart() {
-  const [pipelineData] = useState(pipelinePayload);
+  useEffect(() => {
+    if (payload?.pipelineData && !isBootstrapped.current) {
+      setPipelineData(payload.pipelineData);
+      isBootstrapped.current = true;
+    }
+  }, [payload?.pipelineData]);
 
   return { pipelineData };
 }

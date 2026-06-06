@@ -1,23 +1,16 @@
-import {useState} from "react";
+import { useState, useEffect, useRef } from "react";
+import type { DashboardData, AgentPayload } from "../models/DashboardModels.ts";
 
-type AgentPayload = {
-    month: string;
-    runs: number;
-}
+export function useDashboardLineChart(payload: DashboardData | null) {
+  const [agentData, setAgentData] = useState<AgentPayload[]>([]);
+  const isBootstrapped = useRef(false);
 
-const agentPayload: AgentPayload[] = [
-    { month: "Jan", runs: 45 },
-    { month: "Feb", runs: 60 },
-    { month: "March", runs: 72 },
-    { month: "April", runs: 14 },
-    { month: "May", runs: 35 },
-    { month: "June", runs: 92 },
-    { month: "July", runs: 140 },
-    { month: "August", runs: 45 },
-];
+  useEffect(() => {
+    if (payload?.agentPayload && !isBootstrapped.current) {
+      setAgentData(payload.agentPayload);
+      isBootstrapped.current = true;
+    }
+  }, [payload?.agentPayload]);
 
-export function useDashboardLineChart() {
-    const [agentData] =  useState(agentPayload);
-
-    return{agentData};
+  return { agentData };
 }

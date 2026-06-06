@@ -2,6 +2,7 @@ import LoginPage from "./pages/Login/LoginPage.tsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
 import DefaultLayout from "./layout/DefaultLayout.tsx";
+import "./App.css";
 
 export default function App(): React.JSX.Element {
   return (
