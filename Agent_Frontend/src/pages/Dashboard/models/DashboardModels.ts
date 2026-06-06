@@ -1,7 +1,7 @@
 export type AnalyticsCardsPayload = {
   id?: number;
-  Tag: string;
-  Data: number | string;
+  tag: string;
+  data: number | string;
 };
 
 export type httpMethod = "GET" | "POST" | "PUT" | "DELETE";
@@ -13,9 +13,9 @@ export type PipelinePayload = {
 
 export type Record = {
   id: number;
-  name: string;
+  title: string;
   content: string;
-  date: string;
+  data: string;
 };
 
 export type AgentPayload = {

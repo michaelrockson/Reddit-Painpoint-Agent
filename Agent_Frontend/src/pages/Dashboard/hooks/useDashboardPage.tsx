@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchDashboardData } from "../orchestrators/DashboardOrchestrator.ts";
 import type { DashboardData } from "../models/DashboardModels.ts";
 
-export const useDashboardData = () => {
+export const useDashboardPage = () => {
   const [payload, setPayload] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);

@@ -9,10 +9,13 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { useDashboardLineChart } from "../hooks/useDashboardLineChart.tsx";
+import type { AgentPayload } from "../models/DashboardModels.ts";
 
-export default function DashboardLineChart(): React.JSX.Element {
-  const { agentData } = useDashboardLineChart();
+interface Props {
+  agentData: AgentPayload[];
+}
+
+export default function DashboardLineChart({ agentData }: Props): React.JSX.Element {
 
   return (
     <div className="li-card li-hover-lift">

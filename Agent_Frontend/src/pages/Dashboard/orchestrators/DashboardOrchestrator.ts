@@ -2,28 +2,37 @@ import { dashboardService } from "../services/DashboardService.ts";
 import type { DashboardData } from "../models/DashboardModels.ts";
 
 export async function fetchDashboardData(): Promise<DashboardData> {
-  const [analyticsCardData, pipelineData, agentRecords, agentPayload] =
+  const [analyticsRes, pipelineRes, recordsRes, agentRes] =
     await Promise.all([
       dashboardService.getAnalyticsCardData(),
       dashboardService.getPipelineData(),
       dashboardService.getAgentRecords(),
       dashboardService.getLineChartData(),
     ]);
-  return { analyticsCardData, pipelineData, agentRecords, agentPayload };
+  return { 
+    analyticsCardData: analyticsRes.AnalyticsCards, 
+    pipelineData: pipelineRes.PipelinePayload, 
+    agentRecords: recordsRes.AgentRecordsPayload, 
+    agentPayload: agentRes.AgentRunPayload 
+  };
 }
 
 export async function refetchAnalyticsCards() {
-  return dashboardService.getAnalyticsCardData();
+  const res = await dashboardService.getAnalyticsCardData();
+  return res.AnalyticsCards;
 }
 
 export async function refetchPipelineData() {
-  return dashboardService.getPipelineData();
+  const res = await dashboardService.getPipelineData();
+  return res.PipelinePayload;
 }
 
 export async function refetchAgentRecords() {
-  return dashboardService.getAgentRecords();
+  const res = await dashboardService.getAgentRecords();
+  return res.AgentRecordsPayload;
 }
 
 export async function refetchAgentPayload() {
-  return dashboardService.getLineChartData();
+  const res = await dashboardService.getLineChartData();
+  return res.AgentRunPayload;
 }

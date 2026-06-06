@@ -1,8 +1,11 @@
 import React from "react";
-import { useDashboardHistoryCard } from "../hooks/useDashboardHistoryCard.tsx";
+import type { Record } from "../models/DashboardModels.ts";
 
-export default function DashboardHistoryCard(): React.JSX.Element {
-  const { record } = useDashboardHistoryCard();
+interface Props {
+  record: Record[];
+}
+
+export default function DashboardHistoryCard({ record }: Props): React.JSX.Element {
   return (
     <section className="li-section-sm">
       <div className="li-card li-hover-lift">
@@ -20,9 +23,9 @@ export default function DashboardHistoryCard(): React.JSX.Element {
             <tbody>
               {record.map((row) => (
                 <tr key={row.id}>
-                  <td>{row.name}</td>
+                  <td>{row.title}</td>
                   <td>{row.content}</td>
-                  <td>{row.date}</td>
+                  <td>{row.data}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,36 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import type { DashboardData, AnalyticsCardsPayload } from "../models/DashboardModels.ts";
 
-export type AnalyticsCardsPayload = {
-  id?: number;
-  Tag: string;
-  Data: number | string;
-};
+export function useDashboardOverviewCards(payload: DashboardData | null) {
+  const [cardData, setCardData] = useState<AnalyticsCardsPayload[]>([]);
+  const isBootstrapped = useRef(false);
 
-const mockData: AnalyticsCardsPayload[] = [
-  {
-    id: 0,
-    Tag: "Agent Health",
-    Data: 92.0,
-  },
-  {
-    id: 1,
-    Tag: "Agent Runs",
-    Data: 16,
-  },
-  {
-    id: 2,
-    Tag: "Problem Gathered",
-    Data: 45,
-  },
-  {
-    id: 3,
-    Tag: "Reports Sent",
-    Data: 4,
-  },
-];
-
-export function useDashboardOverviewCards() {
-  const [cardData] = useState(mockData);
+  useEffect(() => {
+    if (payload?.analyticsCardData && !isBootstrapped.current) {
+      setCardData(payload.analyticsCardData);
+      isBootstrapped.current = true;
+    }
+  }, [payload?.analyticsCardData]);
 
   return { cardData };
 }

@@ -7,10 +7,13 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import {useDashboardHexChart} from "../hooks/useDashboardHexChart.tsx";
+import type { PipelinePayload } from "../models/DashboardModels.ts";
 
-export default function DashboardHexChart(): React.JSX.Element {
-  const {pipelineData} = useDashboardHexChart();
+interface Props {
+  pipelineData: PipelinePayload[];
+}
+
+export default function DashboardHexChart({ pipelineData }: Props): React.JSX.Element {
 
   return (
     <div className="li-card li-hover-lift">

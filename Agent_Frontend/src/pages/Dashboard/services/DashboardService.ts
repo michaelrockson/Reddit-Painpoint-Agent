@@ -29,19 +29,19 @@ class DashboardService {
   }
 
   getAnalyticsCardData() {
-    return this.request<AnalyticsCardsPayload[]>("/dashboard/analytics/card", "GET");
+    return this.request<{ AnalyticsCards: AnalyticsCardsPayload[] }>("/dashboard/analytics/card", "GET");
   }
 
   getPipelineData() {
-    return this.request<PipelinePayload[]>("/dashboard/chart/agent/pipeline", "GET");
+    return this.request<{ PipelinePayload: PipelinePayload[] }>("/dashboard/chart/agent/pipeline", "GET");
   }
 
   getAgentRecords() {
-    return this.request<Record[]>("/dashboard/recents/agent/records", "GET");
+    return this.request<{ AgentRecordsPayload: Record[] }>("/dashboard/recents/agent/records", "GET");
   }
 
   getLineChartData() {
-    return this.request<AgentPayload[]>("/dashboard/chart/agent/runs", "GET");
+    return this.request<{ AgentRunPayload: AgentPayload[] }>("/dashboard/chart/agent/runs", "GET");
   }
 }
 
